@@ -6,12 +6,8 @@
    git clone https://github.com/anonymous-user/difflogic-iwp.git
    ```
 
-2. **Build a container environment**   
-   Make sure that [apptainer](https://apptainer.org/docs/admin/main/installation.html#) is installed.
-   ```bash
-   sudo apt update
-   sudo apt install apptainer
-   ```
+2. **Build the container environment**   
+   Make sure that [singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html) is installed ([apptainer](https://apptainer.org/docs/admin/main/installation.html#) works too).
    Then, build this minimal container environment.
 
    ```bash
