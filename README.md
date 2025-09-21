@@ -1,5 +1,5 @@
 # difflogic-iwp: Scalable, stable and efficient difflogic 
-## 1. Setup the environment
+## ⚙️ Setup the environment
 1. **Clone the Repository**  
    Use the following command to clone this repository:
    ```bash
@@ -18,7 +18,7 @@
    sudo apptainer build ./execution_setup/minimal.sif ./execution_setup/minimal.def
    ```
 
-## 2. Reproduce the experiments
+## 🧑‍🔬 Reproduce the experiments
 Execute the following command to train a reparametrized LGN on CIFAR-100.
 ```bash
 apptainer exec ./execution_setup/minimal.sif python main.py --architecture "lgn" --dataset "cifar-100" --iwp --weights_init "ri"
@@ -29,7 +29,7 @@ See `reproduce.md` for the exact commands used in each experiment.
 ### Adjust data and results directories
 The file `./execution_setup/directories.py` contains the directories to store datasets and logging results. They are set to default values initially, but you can change them manually.
 
-## 3. Extend the codebase
+## 🏗️ Extend the codebase
 To extend the implementation yourself, we recommend to use the extended container environment `complete.def`, with installs PyTorch development tools instead of only the runtime.
 ```bash
 sudo apptainer build ./execution_setup/complete.sif ./execution_setup/complete.def 
