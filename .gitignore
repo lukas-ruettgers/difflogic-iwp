@@ -1,0 +1,18 @@
+# Runtime env artifacts
+execution_setup/directories.py
+*.sif
+# CUDA build artifacts
+debug*
+build*
+*.so
+gmon.out
+# Pip build artifacts
+*__pycache__*
+*.pyc
+*.egg-info
+# Measurements
+wandb*
+results*
+analysis*
+# Dataset artifacts
+data*

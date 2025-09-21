@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: pytorch/pytorch:2.4.0-cuda12.4-cudnn9-devel
+Stage: build
+
+%post
+    apt-get update && apt-get install -y \
+        cuda-toolkit-12-1 \
+        g++ make cmake \
+        texlive-latex-base \
+        texlive-fonts-recommended \
+        texlive-latex-extra \
+        texlive-xetex \
+        lmodern \
+        cm-super \
+        dvipng \
+        ghostscript
+    export TORCH_CUDA_ARCH_LIST="7.0;7.5;8.0;8.6;9.0"
+
+    # Set environment variables for CUDA
+    export CUDA_HOME=/usr/local/cuda-12.1
+    export PATH=$CUDA_HOME/bin:$PATH
+    export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+    export CPATH=$CUDA_HOME/include:$CPATH
+
+    pip3 install --no-cache-dir --upgrade pip
+    pip3 install --no-cache-dir tqdm numpy matplotlib seaborn difflogic zarr wandb 
