@@ -1,18 +1,18 @@
 Bootstrap: docker
-From: pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime
+From: pytorch/pytorch:2.4.0-cuda12.4-cudnn9-devel
 Stage: build
 
 %post
-    apt-get update && apt-get install -y \
-        cuda-toolkit-12-1 \
-        g++ make cmake
-    export TORCH_CUDA_ARCH_LIST="7.0;7.5;8.0;8.6;9.0"
-
     # Set environment variables for CUDA
-    export CUDA_HOME=/usr/local/cuda-12.1
+    export TORCH_CUDA_ARCH_LIST="7.0;7.5;8.0;8.6;9.0"
+    export CUDA_HOME=/usr/local/cuda
     export PATH=$CUDA_HOME/bin:$PATH
     export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
     export CPATH=$CUDA_HOME/include:$CPATH
 
+    apt-get update && apt-get install -y g++ make cmake
     pip3 install --no-cache-dir --upgrade pip
-    pip3 install --no-cache-dir tqdm numpy matplotlib seaborn difflogic zarr wandb 
+    # Training
+    pip3 install --no-cache-dir tqdm numpy difflogic  
+    # Logging
+    pip3 install --no-cache-dir zarr wandb

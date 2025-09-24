@@ -11,7 +11,7 @@
    Then, build this minimal container environment.
 
    ```bash
-   sudo apptainer build ./execution_setup/minimal.sif ./execution_setup/minimal.def
+   apptainer build ./execution_setup/minimal.sif ./execution_setup/minimal.def
    ```
 
 ## 🧑‍🔬 Reproduce the experiments
