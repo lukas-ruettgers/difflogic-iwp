@@ -110,6 +110,7 @@ The binary encoding of the channel values is specified via `--encoding ENC`, whe
 
 # 📊 Reproduce figures
 The scripts that were used to generate the figures in our paper are located in the folder `analysis`.
+```
 analysis/
 │
 ├── performance_depth.py           # Compare performance metrics (accuracy, runtime...)
@@ -119,5 +120,7 @@ analysis/
 ├── gradient_stability.py          # Track the gradient norm across logic layers
 │
 ├── distribution_histograms.py     # Sample empirical distributions from weight initializations
+```
 
 Each file provides examples how to specify which run to fetch the measurements from and how to display them.
+Note that this repository does not contain any raw measurements, so they have to be regenerated afresh.
