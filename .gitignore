@@ -13,6 +13,9 @@ gmon.out
 # Measurements
 wandb*
 results*
-analysis*
+analysis/stability*
+analysis/performance*
+analysis/distribution*
+analysis/feature*
 # Dataset artifacts
 data*
