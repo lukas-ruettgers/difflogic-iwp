@@ -22,12 +22,16 @@ apptainer exec ./execution_setup/minimal.sif python main.py --architecture "lgn"
 
 See `reproduce.md` for the exact commands used in each experiment.
 
-### Adjust data and results directories
+### 📁 Adjust data and results directories
 The file `./execution_setup/directories.py` contains the directories to store datasets and logging results. They are set to default values initially, but you can change them manually.
 
-## 🧰 Extend the codebase
-To extend the implementation yourself, we recommend to use the extended container environment `complete.def`, with installs PyTorch development tools instead of only the runtime.
+### 📊 Generate your own plots
+We provide the python scripts that we used to generate the plots in our paper.
+To run those, you first need to build the extended container environment `complete.def`, which additionally installs a LaTeX environment along with Python packages for plotting.
 ```bash
 sudo apptainer build ./execution_setup/complete.sif ./execution_setup/complete.def 
 ```
-This allows you to recompile the CUDA implementation.
+See `reproduce.md` for instructions on the script usage. 
+
+## 🧰 Extend the codebase
+To extend the implementation yourself, have a look at `repository.md` for an overview on the codebase structure.
