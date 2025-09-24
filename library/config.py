@@ -17,7 +17,8 @@ def parse_args():
     parser.add_argument('--architecture', '-a', type=str, default='lgn', choices=['lgn', 'cnn'], help='Which model architecture to train.')
     parser.add_argument('--connections', type=str, default='random', choices=['random', 'unique'])
     parser.add_argument('--tau', '-t', type=float, default=10, help='the softmax temperature tau')
-    parser.add_argument('--c100_keep_temp', type=bool, default=False, help='Whether to scale width and keep the tuned temperature when employing the CIFAR-10 model for CIFAR-100.')
+    parser.add_argument('--c100_scale_temp', type=int, default=None, help='Whether to scale the tuned temperature when employing the CIFAR-10 model for CIFAR-100.')
+    parser.add_argument('--c100_scale_width', type=int, default=None, help='Whether to scale width and keep the tuned temperature when employing the CIFAR-10 model for CIFAR-100.')
     parser.add_argument('--num_neurons', '-k', type=int)
     parser.add_argument('--num_layers', '-l', type=int)
     ## Parametrization
@@ -102,9 +103,17 @@ def set_baseline_args(args):
     args.depth = 4
     args.k = 128000
 
-    # Adjust temperature to CIFAR-100
+    # Decide model scaling for CIFAR-100
     if args.dataset == 'cifar-100':
-        args.softmax_temperature *= sqrt(0.1)
+        if args.c100_scale_temp is None:
+            if 'classic' in args.architecture:
+                args.c100_scale_temp = 1
+        if args.c100_scale_width is None:
+            if 'deep' in args.architecture:
+                args.c100_scale_width = 1
+
+        if args.c100_scale_temp:
+            args.softmax_temperature *= sqrt(0.1)
 
     # Decrease batch size for larger models to meet memory constraints
     if args.depth_scale >= 10:

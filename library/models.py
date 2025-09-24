@@ -72,7 +72,7 @@ def get_lgn(args, llkw):
         for _ in range(l - 2):
             logic_layers.append(logic_layer(in_dim=k, out_dim=k, **llkw))
         k_last = k 
-        if args.c100_keep_temp:
+        if args.c100_scale_width:
             k_last *= 10
             args.softmax_temperature *= sqrt(10)
         logic_layers.append(logic_layer(in_dim=k, out_dim=k_last, **llkw))
