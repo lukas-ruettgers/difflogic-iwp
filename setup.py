@@ -7,11 +7,11 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 setup(
     name='difflogic_iwp',
     version='0.1.0',
-    author='Lukas Rüttgers',
-    author_email='lruettgers@ethz.ch',
+    author='Anonymous',
+    author_email='anonymous',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/lruettgers/difflogic-iwp',
+    url='https://github.com/anonymous/difflogic-iwp',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',
