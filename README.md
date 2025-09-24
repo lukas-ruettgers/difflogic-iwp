@@ -20,7 +20,7 @@ Execute the following command to train a reparametrized LGN on CIFAR-100.
 apptainer exec ./execution_setup/minimal.sif python main.py --architecture "lgn" --dataset "cifar-100" --iwp --weights_init "ri"
 ```
 
-See `reproduce.md` for the exact commands used in each experiment.
+See [reproduce.md](reproduce.md) for the exact commands used in each experiment.
 
 ### 📁 Adjust data and results directories
 The file `./execution_setup/directories.py` contains the directories to store datasets and logging results. They are set to default values initially, but you can change them manually.
@@ -31,7 +31,7 @@ To run those, you first need to build the extended container environment `comple
 ```bash
 sudo apptainer build ./execution_setup/complete.sif ./execution_setup/complete.def 
 ```
-See `reproduce.md` for instructions on the script usage. 
+See [reproduce.md](reproduce.md) for instructions on the script usage. 
 
 ## 🧰 Extend the codebase
-To extend the implementation yourself, have a look at `repository.md` for an overview on the codebase structure.
+To extend the implementation yourself, have a look at [repository.md](repository.md) for an overview on the codebase structure.
