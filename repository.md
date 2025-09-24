@@ -1,6 +1,7 @@
 # Codebase structure
 
 ## Differentiable logic gate networks
+```
 difflogic/                             # Implementation of logic gate networks
 │
 ├── cuda/                              # CUDA implementation of reparametrization
@@ -12,8 +13,15 @@ difflogic/                             # Implementation of logic gate networks
 │
 ├── difflogic.py                       # Python wrapper class for reparametrization 
 ├── functional.py                      # Custom autograd functions 
+```
+### Recompile CUDA implementation
+If you make changes to the CUDA implementation and want to recompile it, run
+   ```bash
+   apptainer ./execution_setup/minimal.sif python setup.py build_ext --inplace --force
+   ```
 
 ## Experiment infrastructure
+```
 library/                               
 │
 ├── config.py                          # Experiment parameters
@@ -25,3 +33,4 @@ library/
 ├── train.py                           # Model training 
 │
 ├── measurements.py                    # Measurements 
+```
