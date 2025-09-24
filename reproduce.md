@@ -1,4 +1,4 @@
-# Reproduce experiments
+# 🧑‍🔬 Reproduce experiments
 This file contains the specific parameters that we used in our experiments.
 
 ## Evaluation
@@ -107,3 +107,17 @@ The binary encoding of the channel values is specified via `--encoding ENC`, whe
 | Thermometer encoding with 15 thresolds | `15-thresholds` |
 | Thermometer encoding with 23 thresolds | `23-thresholds` |
 | Thermometer encoding with 31 thresolds | `31-thresholds` |
+
+# 📊 Reproduce figures
+The scripts that were used to generate the figures in our paper are located in the folder `analysis`.
+analysis/
+│
+├── performance_depth.py           # Compare performance metrics (accuracy, runtime...)
+│
+├── analyze_individual.py          # Track the gate output distribution across logic layers
+│
+├── gradient_stability.py          # Track the gradient norm across logic layers
+│
+├── distribution_histograms.py     # Sample empirical distributions from weight initializations
+
+Each file provides examples how to specify which run to fetch the measurements from and how to display them.
