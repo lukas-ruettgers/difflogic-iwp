@@ -14,8 +14,9 @@ gmon.out
 wandb*
 results*
 analysis/stability*
-analysis/performance*
-analysis/distribution*
-analysis/feature*
+analysis/performance_depth/*
+analysis/performance_bars/*
+analysis/distribution_histograms/*
+analysis/feature-histogram/*
 # Dataset artifacts
 data*
