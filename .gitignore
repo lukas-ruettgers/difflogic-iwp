@@ -19,4 +19,4 @@ analysis/performance_bars/*
 analysis/distribution_histograms/*
 analysis/feature-histogram/*
 # Dataset artifacts
-data*
+data/*
